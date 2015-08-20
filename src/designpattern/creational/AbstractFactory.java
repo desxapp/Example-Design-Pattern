@@ -27,11 +27,11 @@ public class AbstractFactory {
                     };
                 }
             };
-            rectangle_part.GetRectangle(20, 10).paint(factory);    
+            rectangle_part.getRectangle(20, 10).paint(factory);    
     }
 	
 	// Like a simple factory.
-	Rectangle GetRectangle(int width, int height) {
+	Rectangle getRectangle(int width, int height) {
 		return new Rectangle(width, height);
 	}
 	
@@ -73,8 +73,8 @@ public class AbstractFactory {
 	            System.out.println();
 	        }
 	        corner.leftDown();
-	        point.line(width - 2);
-	        corner.rightDown();
+			point.line(width - 2);
+			corner.rightDown();
 			System.out.println();
 		}
 	}
