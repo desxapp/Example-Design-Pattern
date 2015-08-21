@@ -1,5 +1,4 @@
-import designpattern.creational.AbstractFactory;
-import designpattern.creational.FactoryMethod;
+import designpattern.creational.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -8,5 +7,14 @@ public class Main {
 
 		// Run test factory method.
 		FactoryMethod.Test_FactoryMethod();
+
+		// Run test Builder.
+		Builder.Test_Builder();
+
+		// Run test Singleton.
+		Singleton.Test_Singleton();
+
+		// Run test Test_SingletonRegistry.
+		SingletonRegistry.Test_SingletonRegistry();
 	}
 }
