@@ -2,16 +2,19 @@ package designpattern.creational;
 
 import java.util.*;
 
-public class FactoryMethod {
+import designpattern.util.BasedPattern;
+
+public class FactoryMethod implements BasedPattern {
 	// Implement factory method instance and test two different editor class.
-	public static void Test_FactoryMethod() {
-		FactoryMethod factory_method = new FactoryMethod(); 
-		
+	@Override
+	public void TestPattern() {
+		FactoryMethod factory_method = new FactoryMethod();
+
 		Editor text_editor = factory_method.getTextEditor();
 		text_editor.open("Test1.txt");
 		text_editor.open("Test2.txt");
 		text_editor.close();
-		
+
 		Editor doc_editor = factory_method.getDocEditor();
 		doc_editor.open("Test3.doc");
 		doc_editor.close();
@@ -24,7 +27,7 @@ public class FactoryMethod {
 	DocEditor getDocEditor() {
 		return new DocEditor();
 	}
-	
+
 	// Document class, declare abstract methods.
 	abstract class Document {
 		private String title;
@@ -38,7 +41,9 @@ public class FactoryMethod {
 		}
 
 		abstract void open();
+
 		abstract void save();
+
 		abstract void close();
 	}
 
@@ -61,13 +66,13 @@ public class FactoryMethod {
 			doc.close();
 			docs.remove(doc);
 		}
-		
-	    void close() {
-	        while(docs.size() > 0) {
-	            close(docs.get(0));
-	        }
-	    }
-	    
+
+		void close() {
+			while (docs.size() > 0) {
+				close(docs.get(0));
+			}
+		}
+
 		abstract Document createDocument(); // Factory method
 	}
 

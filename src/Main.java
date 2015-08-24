@@ -1,20 +1,30 @@
 import designpattern.creational.*;
+import designpattern.structural.*;
+import designpattern.util.BasedPattern;
+import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-		// Run test abstract factory, and including simple factory.
-		AbstractFactory.Test_AbstractFactory();
+		// Add all patterns to pattern list.
+		List<BasedPattern> patternList = new ArrayList<BasedPattern>();
 
-		// Run test factory method.
-		FactoryMethod.Test_FactoryMethod();
-
-		// Run test Builder.
-		Builder.Test_Builder();
-
-		// Run test Singleton.
-		Singleton.Test_Singleton();
-
-		// Run test Test_SingletonRegistry.
-		SingletonRegistry.Test_SingletonRegistry();
+		patternList.add(new AbstractFactory());
+		patternList.add(new FactoryMethod());
+		patternList.add(new Builder());
+		patternList.add(new Prototype());
+		patternList.add(new Singleton());
+		patternList.add(new SingletonRegistry());
+		patternList.add(new Adapter());
+		patternList.add(new Bridge());
+		patternList.add(new Composite());
+		patternList.add(new Decorator());
+		patternList.add(new Facade());
+		patternList.add(new Flyweight());
+		patternList.add(new Proxy());
+		
+		// Test all patterns via the interface of BasedPattern.
+		for (BasedPattern pattern : patternList) {
+			pattern.TestPattern();
+		}
 	}
 }

@@ -1,9 +1,11 @@
 package designpattern.creational;
 
-public class Singleton {
+import designpattern.util.BasedPattern;
+
+public class Singleton implements BasedPattern {
 	private static Singleton instance = null;
 
-	private Singleton() {
+	public Singleton() {
 	}
 
 	// Make sure the instance will be only one.
@@ -20,7 +22,8 @@ public class Singleton {
 		return instance;
 	}
 
-	public static void Test_Singleton() {
+	@Override
+	public void TestPattern() {
 		@SuppressWarnings("unused")
 		Singleton instance1 = getInstance();
 		@SuppressWarnings("unused")

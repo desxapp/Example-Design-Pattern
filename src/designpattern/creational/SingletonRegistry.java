@@ -2,10 +2,12 @@ package designpattern.creational;
 
 import java.util.*;
 
-public class SingletonRegistry {
+import designpattern.util.BasedPattern;
+
+public class SingletonRegistry implements BasedPattern {
 	private static Map<String, Object> registry = new HashMap<String, Object>();
 
-	private SingletonRegistry() {
+	public SingletonRegistry() {
 	}
 
 	public static Object getInstance(String classname) {
@@ -14,7 +16,7 @@ public class SingletonRegistry {
 		if (singleton != null) {
 			return singleton;
 		}
-		
+
 		try {
 			singleton = Class.forName(classname).newInstance();
 		} catch (Exception e) {
@@ -26,7 +28,8 @@ public class SingletonRegistry {
 		return singleton;
 	}
 
-	public static void Test_SingletonRegistry() {
+	@Override
+	public void TestPattern() {
 		@SuppressWarnings("unused")
 		SingletonRegistry instance1 = (SingletonRegistry) getInstance("designpattern.creational.SingletonRegistry");
 		@SuppressWarnings("unused")
